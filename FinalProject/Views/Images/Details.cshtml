@@ -1,0 +1,50 @@
+﻿@using FinalProject.Models;
+@using Microsoft.AspNetCore.Identity
+
+@model Image
+@inject SignInManager<UserAccount> SignInManager
+@inject UserManager<UserAccount> UserManager
+@{
+    ViewData["Title"] = "Details";
+    string[,] comments = ViewData["Comments"] as string[,];
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Post Details</h1>
+
+<div id="user-post">
+    <h4>@Model.Title</h4>
+    <p>Uploaded by: <i>@Model.User.FirstName @Model.User.LastName</i></p>
+    <div id="image-container">
+        <img src="~/images/@Model.FileName" />
+    </div>
+    <div id="utility-bar">
+        @if (SignInManager.IsSignedIn(User) && Model.User == await UserManager.GetUserAsync(User))
+        {
+            <a class="user-post-actions" asp-controller="Images" asp-action="Delete" asp-route-id="@Model.ImageID">Delete Post</a>
+        }
+        <button class="vote-button-up" type="button"></button>
+        <button class="vote-button-down" type="button"></button>
+        <form asp-action="CreateComment" asp-route-id="@Model.ImageID" method="post">
+            <input type="text" asp-for="Comments" value="" placeholder="enter your comment here" />
+            <input type="submit" class="post-comment" value="Post Comment">
+        </form>
+    </div>
+
+    <div id="comment-section">
+        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+        {
+           <a class="admin-comment-actions" asp-controller="Admin" asp-action="DeleteComment" asp-route-id="@Model.ImageID">Delete a Comment</a>
+        }
+
+        @for (int i = 0; i < comments.GetLength(0); i++)
+        {
+            <p>
+                <q>@comments[i, 0].ToString()</q><span id="commenter"><strong>--@comments[i, 1].ToString()</strong></span>
+            </p>
+        }
+
+    </div>
+</div>
+
+

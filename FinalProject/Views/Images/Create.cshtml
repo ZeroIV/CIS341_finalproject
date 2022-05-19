@@ -1,0 +1,19 @@
+﻿@using FinalProject.Models;
+
+@model FinalProject.Models.Image;
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Create New Post</h1>
+
+<form id="user-upload-form" asp-controller="Images" asp-action="Create" enctype="multipart/form-data"  method="post">
+    <input type="text" asp-for="Title" placeholder="Give your post a title!" required/><br />
+    <p>Image to post: </p>
+    <img id="upload-preview" src="#" hidden/><br />
+    <input asp-for="FileName" type="file" accept="image/*" class="imageToUpload" required/><br />
+    <input type="submit" value="Upload Image" name="imageSubmit" />
+</form>
+

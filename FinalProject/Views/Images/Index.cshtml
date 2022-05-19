@@ -1,0 +1,21 @@
+﻿@using FinalProject.Models;
+
+@model List<Image>
+@{
+    ViewData["Title"] = "Images";
+
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@foreach (Image item in Model)
+{
+<div id="user-post">
+    <h4><a asp-controller="Images" asp-action="Details" asp-route-id="@item.ImageID">@item.Title</a></h4>
+    <p>Uploaded by: <i>@item.User.FirstName @item.User.LastName</i></p>
+    <div id="image-container">
+        <img src="~/images/@item.FileName" />
+    </div>
+</div>
+}

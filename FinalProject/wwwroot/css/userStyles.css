@@ -1,0 +1,234 @@
+﻿/* Sticky footer styles
+-------------------------------------------------- */
+html, html div.container, html body {
+    font-size: 14px;
+    background-color: lightslategray;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+/*custom styles
+------------------------------------------------------- */
+
+nav {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding-left: 0em;
+}
+
+li {
+    font-weight: bold;
+    float: left;
+    border: 1px solid crimson;
+    background: cadetblue;
+}
+ 
+li a {
+    color:black;
+}
+a:hover{
+    color: black;
+}
+
+#userNav {
+    width: 100%;
+    margin-left: 2%;
+    padding: 1.5em .5em;
+}
+#userNav li:first-child {
+    background:transparent;
+    border:none;
+    padding: 0px 4px;
+}
+
+#display-name {
+    background: transparent;
+    border: none;
+    padding: 20px 13px 15px 13px;
+    font-weight:bold;
+}
+
+#userNav img{
+    width:7em;
+}
+
+#userNav li:nth-child(1n+2) {
+    position: relative;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    display: flex;
+    padding: 20px 13px 15px 13px;
+    transition: background ease-in .3s, box-shadow .3s ease-in;
+}
+
+#userNav li:nth-child(1n+2):hover {
+    background-color: #e90000;
+    box-shadow: 3px 0px 15px 0px black;
+}
+
+#user-post {
+    padding: 2%;
+    border: 1px solid black;
+    width:fit-content;
+    max-height: 25%;
+    margin: 0% 5% 5% 5%;
+}
+
+#user-post h4 a {
+    text-decoration: underline;
+    color: black;
+}
+
+#user-post h4 a:hover {
+    color: maroon;
+}
+
+#image-container {
+    display: inline-block;
+    border: 1px solid black;
+}
+
+#image-container img {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+}
+
+#utility-bar {
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: flex-start;
+    min-height: 40px;
+}
+
+#utility-bar button {
+    border: 1px solid black;
+    padding: 2px;
+    display: inline-block;
+    width: 5%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: center;
+}
+
+#utility-bar button.vote-button-up {
+    background-image: url(../Images/updoot-blank.png);
+}
+
+#utility-bar button.vote-button-up.active {
+    background-image: url(../Images/updoot-selected.png)
+}
+
+#utility-bar button.vote-button-down {
+    background-image: url(../Images/down-vote-blank.png);
+}
+
+#utility-bar button.vote-button-down.active {
+    background-image: url(../Images/down-vote-selected.png)
+}
+
+#utility-bar input {
+    width: 60%
+}
+
+#utility-bar button.post-comment {
+    padding: 3px;
+    background: darkgrey;
+    width: auto;
+}
+
+#utility-bar .user-post-actions {
+    width: auto;
+    text-align:center;
+    border: 1px solid black;
+    padding: 4px;
+    background-color: gray;
+    color: crimson;
+}
+
+#comment-section p {
+    padding: 2%;
+    border: 1px black solid;
+}
+
+#comment-section p #commenter{
+   padding-left:3em;
+}
+
+#user-upload-form {
+    padding: 5%;
+    margin: 5%;
+    border: 1px black solid;
+}
+
+#user-upload-form input {
+    margin: 5%;
+}
+
+#user-upload-form p{
+    margin:5%;
+    font-weight:bold;
+}
+
+img#upload-preview {
+    max-height: 200px;
+    border-style: ridge;
+    border-width: thick;
+    margin-left: 5%;
+    border-color: gray;
+    padding: 10px;
+}
+

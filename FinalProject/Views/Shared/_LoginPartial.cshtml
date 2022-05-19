@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<UserAccount> SignInManager
+@inject UserManager<UserAccount> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <span id="display-name" style="color:black; font-size:large;">Hello, @UserManager.GetUserName(User)!</span>
+    if (User.IsInRole("Admin"))
+    {
+        <li id="nav-item"><a asp-area="" asp-controller="Admin" asp-action="ImagesList">Manage Images</a></li>
+        <li id="nav-item"><a asp-area="" asp-controller="Admin" asp-action="Index">Manage Users</a></li>
+    }
+    else
+    {
+        <li id="nav-item"><a asp-controller="Images" asp-action="Images" asp-route-id="@UserManager.GetUserId(User)">My Posts</a></li>
+        <li id="nav-item"><a asp-area="" asp-controller="Images" asp-action="Index">User Posts</a></li>
+        <li id="nav-item"><a asp-area="" asp-controller="Images" asp-action="Create">Upload New Image</a></li>
+    }
+    <li id="nav-item">
+        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "User")">
+            <button style="color:black; font-weight:bold;" id="logout" type="submit" class="nav-link btn btn-link">Logout</button>
+        </form>
+    </li>
+}
+else
+{
+    <li id="nav-item">
+        <a id="login" asp-controller="User" asp-action="Index">Login</a>
+    </li>
+    <li id="nav-item"><a asp-area="" asp-controller="Images" asp-action="Index">Posted Images</a></li>
+}

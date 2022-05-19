@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Error";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    string message = Model;
+}
+
+<h1>Oh Snap!</h1>
+
+<div>
+    <strong>An Error has occured: </strong>
+    <b>@message</b><br />
+                    <a asp-action="Create">Upload a different file</a>
+</div>
+
