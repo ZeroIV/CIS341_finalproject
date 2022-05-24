@@ -2,8 +2,8 @@
     
     A basic implementation of a "Reddit" style web app with different functionality provided for End-Users and Admin Users.
 	
-    ## Asp.net Core Version used: 2.2.
-        Recently migrated to use Core version 6.0
+    ## Original Asp.net Core Version used: 2.2.
+       Recently updated to utilize Core version 6.0+
 		
     ## Getting Started
 	
